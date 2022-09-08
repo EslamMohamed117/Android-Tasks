@@ -1,13 +1,19 @@
 package com.example.task1;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.example.task1.database.DatabaseContract;
+import com.example.task1.database.DatabaseContract.ProductInfo;
+import com.example.task1.database.DatabaseOpenHelper;
+
 import java.util.ArrayList;
 
 public class ProductsList {
     private static ProductsList single_instance = null;
     private static ArrayList<Product> productsList = new ArrayList<Product>();
-    public ProductsList()
+    private ProductsList()
     {
-        initializeProductsList();
     }
     public static ProductsList getInstance()
     {
@@ -22,6 +28,40 @@ public class ProductsList {
         }
         return single_instance;
     }
+    public static void loadFromDB(DatabaseOpenHelper openHelper)
+    {
+        SQLiteDatabase db = openHelper.getReadableDatabase();
+        final String[] columns = {ProductInfo.PRODUCT_ID, ProductInfo.PRODUCT_NAME, ProductInfo.PRODUCT_PRICE, ProductInfo.PRODUCT_DESCRIPTION, ProductInfo.PRODUCT_COUNT, ProductInfo.PRODUCT_PICTURE};
+        Cursor cursor = db.query(ProductInfo.TABLE_NAME, columns, null, null, null, null, ProductInfo.PRODUCT_ID);
+        loadProductsFromDB(cursor);
+    }
+
+    private static void loadProductsFromDB(Cursor cursor) {
+        int productIDPos = cursor.getColumnIndex(ProductInfo.PRODUCT_ID);
+        int productNamePos = cursor.getColumnIndex(ProductInfo.PRODUCT_NAME);
+        int productPricePos = cursor.getColumnIndex(ProductInfo.PRODUCT_PRICE);
+        int productDescriptionPos = cursor.getColumnIndex(ProductInfo.PRODUCT_DESCRIPTION);
+        int productCountPos = cursor.getColumnIndex(ProductInfo.PRODUCT_COUNT);
+        int productPicturePos = cursor.getColumnIndex(ProductInfo.PRODUCT_PICTURE);
+
+        productsList.clear();
+
+        while(cursor.moveToNext())
+        {
+            productsList.add(new Product.Builder()
+                    .productID(cursor.getInt(productIDPos))
+                    .productName(cursor.getString(productNamePos))
+                    .productDescription(cursor.getString(productDescriptionPos))
+                    .productPrice(cursor.getFloat(productPricePos))
+                    .productCount(cursor.getInt(productCountPos))
+                    .productPicture(cursor.getInt(productPicturePos))
+                    .build()
+            );
+        }
+        cursor.close();
+
+    }
+
     private void initializeProductsList()
     {
         if(productsList.isEmpty()) {

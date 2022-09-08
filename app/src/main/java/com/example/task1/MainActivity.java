@@ -2,6 +2,7 @@ package com.example.task1;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.task1.database.DatabaseOpenHelper;
 import com.example.task1.databinding.ActivityMainBinding;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -31,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-    
+    private DatabaseOpenHelper mOpenHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +63,18 @@ public class MainActivity extends AppCompatActivity {
 
 
         updateNavHeader();
+        mOpenHelper = new DatabaseOpenHelper(this);
+        ProductsList.loadFromDB(mOpenHelper);
+        SQLiteDatabase db = mOpenHelper.getReadableDatabase();
 
     }
 
-    
+    @Override
+    protected void onDestroy() {
+        mOpenHelper.close();
+        super.onDestroy();
+    }
+
     private void updateNavHeader(){
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
