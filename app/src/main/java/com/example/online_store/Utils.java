@@ -1,19 +1,16 @@
-package com.example.task1;
+package com.example.online_store;
 
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
-
-import com.google.android.material.snackbar.Snackbar;
 
 public class Utils {
     protected static int themeSetting;

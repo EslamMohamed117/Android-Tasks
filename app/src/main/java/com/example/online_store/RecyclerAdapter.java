@@ -1,4 +1,4 @@
-package com.example.task1;
+package com.example.online_store;
 
 import android.content.Context;
 import android.content.Intent;

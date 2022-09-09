@@ -1,4 +1,4 @@
-package com.example.task1.database;
+package com.example.online_store.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,9 +7,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.example.task1.Product;
-import com.example.task1.ProductsList;
-import com.example.task1.database.DatabaseContract.ProductInfo;
+import com.example.online_store.Product;
+import com.example.online_store.ProductsList;
+import com.example.online_store.database.DatabaseContract.ProductInfo;
 
 import java.util.ArrayList;
 

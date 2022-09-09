@@ -1,19 +1,17 @@
-package com.example.task1.ui.home;
+package com.example.online_store.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.task1.RecyclerAdapter;
-import com.example.task1.databinding.FragmentHomeBinding;
+import com.example.online_store.RecyclerAdapter;
+import com.example.online_store.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 

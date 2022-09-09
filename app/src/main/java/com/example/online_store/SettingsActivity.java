@@ -1,4 +1,4 @@
-package com.example.task1;
+package com.example.online_store;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -7,7 +7,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 

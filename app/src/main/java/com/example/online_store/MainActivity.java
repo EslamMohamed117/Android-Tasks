@@ -1,4 +1,4 @@
-package com.example.task1;
+package com.example.online_store;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,20 +7,14 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.task1.database.DatabaseOpenHelper;
-import com.example.task1.databinding.ActivityMainBinding;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.online_store.database.DatabaseOpenHelper;
+import com.example.online_store.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;

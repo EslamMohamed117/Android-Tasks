@@ -1,4 +1,4 @@
-package com.example.task1.database;
+package com.example.online_store.database;
 
 import android.provider.BaseColumns;
 

@@ -1,11 +1,10 @@
-package com.example.task1;
+package com.example.online_store;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.task1.database.DatabaseContract;
-import com.example.task1.database.DatabaseContract.ProductInfo;
-import com.example.task1.database.DatabaseOpenHelper;
+import com.example.online_store.database.DatabaseContract.ProductInfo;
+import com.example.online_store.database.DatabaseOpenHelper;
 
 import java.util.ArrayList;
 

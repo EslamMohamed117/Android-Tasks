@@ -1,4 +1,4 @@
-package com.example.task1;
+package com.example.online_store;
 
 public class Product {
     private String productName;
