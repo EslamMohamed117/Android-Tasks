@@ -20,8 +20,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.preference.PreferenceManager;
 
 import com.example.online_store.database.DatabaseOpenHelper;
-import com.example.task1.*;
-import com.example.task1.databinding.ActivityMainBinding;
+import com.example.online_store.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
