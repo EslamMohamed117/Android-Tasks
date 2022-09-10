@@ -61,7 +61,7 @@ public class ProductsList {
 
     }
 
-    private void initializeProductsList()
+    public static void initializeProductsList()
     {
         if(productsList.isEmpty()) {
             productsList.add(

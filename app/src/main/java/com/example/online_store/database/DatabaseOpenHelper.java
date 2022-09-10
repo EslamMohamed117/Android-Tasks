@@ -32,6 +32,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     }
     private void insertProducts(SQLiteDatabase db)
     {
+        ProductsList.getInstance();
+        ProductsList.initializeProductsList();
         ArrayList<Product> list = ProductsList.getInstance().getList();
         for(Product product : list)
         {
@@ -44,6 +46,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
             contentValues.put(ProductInfo.PRODUCT_PICTURE,product.getProductPicture());
             db.insert(ProductInfo.TABLE_NAME,null, contentValues);
         }
+        ProductsList.getInstance().getList().clear();
 
 
     }
